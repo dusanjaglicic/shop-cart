@@ -96,10 +96,10 @@ return [
             ],
             'retry_after' => 60,
         ],
-        'admin_email' => env('ADMIN_EMAIL'),
+
 
     ],
-
+    'admin_email' => env('ADMIN_EMAIL'),
     /*
     |--------------------------------------------------------------------------
     | Global "From" Address

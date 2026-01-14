@@ -18,7 +18,7 @@ class CheckoutController extends Controller
 
         $cartItems = CartItem::query()
             ->where('user_id', $userId)
-            ->with(['product:id,name,price,stock_quantity'])
+            ->with(['product:id,name,price,stock_quantity,low_stock_threshold'])
             ->get();
 
         if ($cartItems->isEmpty()) {

@@ -1,7 +1,7 @@
 <script setup>
 import { Link, router, usePage } from '@inertiajs/vue3'
 import { ref } from 'vue'
-
+import Navbar from '@/Components/Navbar.vue'
 const props = defineProps({
     product: Object,
 })
@@ -21,7 +21,11 @@ function addToCart() {
 
 <template>
     <div class="max-w-3xl mx-auto p-6">
-        <Link href="/products" class="text-sm underline">← Back</Link>
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-2xl font-bold">Item</h1>
+
+            <Navbar />
+        </div>
 
         <div class="border rounded-lg p-6 bg-white shadow-sm mt-4">
             <h1 class="text-2xl font-bold">{{ product.name }}</h1>

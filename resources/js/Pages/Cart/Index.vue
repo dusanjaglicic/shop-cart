@@ -1,6 +1,6 @@
 <script setup>
 import { Link, router, usePage } from '@inertiajs/vue3'
-
+import Navbar from '@/Components/Navbar.vue'
 defineProps({
     cartItems: Array,
     total: Number,
@@ -25,16 +25,18 @@ function placeOrder() {
     <div class="max-w-5xl mx-auto p-6">
         <div class="flex items-center justify-between mb-6">
             <h1 class="text-2xl font-bold">Cart</h1>
-            <Link href="/products" class="text-sm underline">← Products</Link>
-        </div>
-
-        <div v-if="page.props.flash?.success" class="mb-4 p-3 rounded bg-green-100 text-green-800">
-            {{ page.props.flash.success }}
+            <Navbar />
         </div>
 
         <div v-if="cartItems.length === 0" class="p-6 border rounded bg-white">
-            Cart is empty.
+            <div v-if="page.props.flash?.success" class="text-green-700 font-semibold">
+                {{ page.props.flash.success }}
+            </div>
+            <div v-else>
+                Cart is empty.
+            </div>
         </div>
+
 
         <div v-else class="border rounded bg-white overflow-hidden">
             <table class="w-full text-sm">

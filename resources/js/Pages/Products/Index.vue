@@ -1,9 +1,10 @@
 <script setup>
-import { Link } from '@inertiajs/vue3'
-
+import { Link, usePage } from '@inertiajs/vue3'
+import Navbar from '@/Components/Navbar.vue'
 defineProps({
     products: Array,
 })
+const page = usePage()
 </script>
 
 <template>
@@ -11,10 +12,7 @@ defineProps({
         <div class="flex items-center justify-between mb-6">
             <h1 class="text-2xl font-bold">Products</h1>
 
-            <div class="flex gap-3">
-                <Link href="/cart" class="text-sm underline">Cart</Link>
-                <Link href="/login" class="text-sm underline">Login</Link>
-            </div>
+            <Navbar />
         </div>
 
         <div v-if="products.length === 0" class="p-6 border rounded bg-white">
